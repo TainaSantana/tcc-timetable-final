@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Salas{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Salas</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <form class="form-inline my-2 my-lg-0" method="get">
+        <input class="form-control mr-sm-2" type="text" id="search" name="search"  placeholder="Buscar..." aria-label="Pesquisar">
+        <button class="btn btn-outline-info my-2 my-sm-0" id="search-btn" type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Bloco</th>
+        <th scope="col">Tipo de Laboratório</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    
+    {% for salas in salas_list %}
+    <tbody>
+    
+      <tr>
+        <th scope="row">{{ salas.nome }}</th>
+        <td>{{ salas.bloco }}</td>
+        <td>{{ salas.get_tipo_lab_display }}</td>
+        <td><a href="editasala/{{salas.id}}"><i class="fas fa-edit"></i></a> <a href="exibesala/{{salas.id}}"><i class="fas fa-eye"></a></i> <a href="delete/{{salas.id}}" class="delete-btn"><i class="fas fa-trash-alt"></i></a> </td>
+        
+      </tr>
+    
+    
+    </tbody>
+    {% endfor %}
+    
+  </table>
+ 
+  
+{% endblock %}

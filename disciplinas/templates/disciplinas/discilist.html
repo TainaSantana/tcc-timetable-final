@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Disciplinas{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Disciplinas</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <form class="form-inline my-2 my-lg-0" method="get">
+        <input class="form-control mr-sm-2" type="text" id="search" name="search" placeholder="Buscar..." aria-label="Pesquisar">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Sigla</th>
+        <th scope="col">Semestre</th>
+          <th scope="col">Professor(a)</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    
+    {% for disciplina in disc_list %}
+    <tbody>
+    
+      <tr>
+        <th scope="row">{{ disciplina.nome }}</th>
+        <td>{{ disciplina.sigla }}</td>
+        <td>{{ disciplina.semestre }}</td>
+          <td>{{ disciplina.professor }}</td>
+        <td><a href="editadisciplina/{{disciplina.id}}"><i class="fas fa-edit"></i></a> <a href="exibedisciplina/{{disciplina.id}}"><i class="fas fa-eye"></a></i> <a href="delete/{{disciplina.id}}" class="delete-btn"><i class="fas fa-trash-alt"></i></a> </td>
+        
+      </tr>
+    
+    
+    </tbody>
+    {% endfor %}
+    
+  </table>
+ 
+  
+{% endblock %}

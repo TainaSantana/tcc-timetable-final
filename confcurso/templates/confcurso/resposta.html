@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Configurações do curso {% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Grade horária gerada!</h1>
+</div>
+<p class="lead">Grade horária gerada com sucesso. A planilha com a solução gerada foi baixada em sua máquina!</p>
+<form method="POST">
+  {% csrf_token %}
+
+</form>
+{% endblock %}

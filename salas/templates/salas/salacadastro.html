@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} Cadastro de Sala {% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Cadastro de Sala</h1>
+</div>
+<form method="POST">
+    {% csrf_token %}
+   
+      <!--{{ form }}-->
+   
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="id_nome">Nome da sala</label>
+        <input type="text" name="nome" required id="id_nome" class="form-control" maxlength="150" placeholder="Nome ou código da sala">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputBloco">Bloco</label>
+        <input type="text" name="bloco" required id="id_sala" class="form-control" maxlength="2" placeholder="Bloco onde se localiza a sala">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputCapacidade">Capacidade</label>
+        <input type="text" name="capacidade" required id="id_capacidade" class="form-control" maxlength="4" placeholder="Capacidade da sala">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="id_tipo_lab">Tipo de Laboratório</label>
+        <select name="tipo_lab" required id="id_tipo_lab" class="form-control">
+          <option value selected>Selecione...</option>
+          <option value="1">Laboratório com computadores</option>
+          <option value="0">Laboratório sem computadores</option>
+        </select>
+    </div>
+    <!--<div class="form-group col-md-4">
+        <label for="status">Status</label>
+        <select name="status" required id="id_status" class="form-control">
+          <option value selected>Selecione...</option>
+          <option value="1">Ativo</option>
+          <option value="2">Inativo</option>
+        </select>
+    </div>-->
+    
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Cadastrar Sala">
+    
+ </form>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block title %} Gerar grade horária{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Gerar grade horária</h1>
+</div>
+<!--<p class="lead">Informe as configurações antes de gerar a grade horária.</p>-->
+<form method="POST">
+  {% csrf_token %}
+ 
+    <!--{{ form }}-->
+<!--
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="id_semestre">Semestre vigente</label>
+      <select id="id_semestre" name="Semestre" class="form-control">
+        <option selected>Selecione...</option>
+        <option value="1">1º Semestre</option>
+        <option value="2">2º Semestre</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="hora_inicio">Hora inicial da aula</label>
+      <input required type="time" id="id_hora_inicio" class="form-control" placeholder="00:00">
+    </div>
+  
+  <div class="form-group col-md-3">
+    <label for="hora_fim">Hora final da aula</label>
+    <input required type="time" id="id_hora_fim" class="form-control" placeholder="00:00">
+  </div>
+</div>
+
+<label for="hora_inicio">Dias de aula na semana:</label>
+  <div class="form-row">
+    
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="id_dias_aula" value="1">
+        <label class="form-check-label" for="dias_aula">Segunda</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="id_dias_aula" value="2">
+        <label class="form-check-label" for="dias_aula">Terça</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="id_dias_aula" value="3">
+        <label class="form-check-label" for="dias_aula">Quarta</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="id_dias_aula" value="4">
+        <label class="form-check-label" for="dias_aula">Quinta</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="id_dias_aula" value="5">
+        <label class="form-check-label" for="dias_aula">Sexta</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="id_dias_aula" value="6">
+        <label class="form-check-label" for="dias_aula">Sábado</label>
+      </div>
+      <hr>
+</div>-->
+
+      <h5>Dados Cadastrados</h5>
+     <p class="lead">Confira as informações antes de gerar a grade horária. Caso esteja faltando informação, realize o cadastro antes de prosseguir</p>
+
+<div class="container">
+<div class="row">
+
+    <ul class="list-group form-group col-6 col-sm-3">
+      <li class="list-group-item active" aria-current="true">Turmas</li>
+        {% for turma in turma %}
+            <li class="list-group-item" value="{{ turma.id }}">{{ turma.nome }}</li>
+        {% endfor %}
+    </ul>
+
+<ul class="list-group form-group col-6 col-sm-3">
+      <li class="list-group-item active" aria-current="true">Salas</li>
+        {% for sala in sala %}
+            <li class="list-group-item" value="{{ sala.id }}">{{ sala.nome }}</li>
+        {% endfor %}
+    </ul>
+
+
+<div class="w-100"></div>
+
+<ul class="list-group form-group col-6 col-sm-3">
+      <li class="list-group-item active" aria-current="true">Professores</li>
+        {% for prof in prof %}
+            <li class="list-group-item" value="{{ prof.id }}">{{ prof.nome }}</li>
+        {% endfor %}
+    </ul>
+
+
+<ul class="list-group form-group col-6 col-sm-3">
+      <li class="list-group-item active" aria-current="true">Disciplinas</li>
+        {% for disc in disc %}
+            <li class="list-group-item" value="{{ disc.id }}">{{ disc.nome }}</li>
+        {% endfor %}
+    </ul>
+
+</div>
+</div>
+<br>
+    <li class="nav-item">
+                  <a class="nav-link" href="{% url 'algenetico:alg-main' %}">
+                    <span class="icone"><i class="fas fa-pen-square"></i></span>
+                    Gerar grade
+                  </a>
+                </li>
+
+
+
+  </div>
+  
+  
+  
+</form>
+{% endblock %}

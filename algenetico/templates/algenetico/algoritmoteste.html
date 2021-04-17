@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Algoritmo Genético {% endblock %}
+{% block content %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Sigla</th>
+        <th scope="col">Semestre</th>
+        <th scope="col">Professor</th>
+      </tr>
+    </thead>
+
+    {% for disciplina in disciplina %}
+    <tbody>
+
+      <tr>
+        <th scope="row">{{ disciplina.nome }}</th>
+        <td>{{ disciplina.sigla }}</td>
+        <td>{{ disciplina.semestre }}</td>
+        <td>{{ disciplina.professor }}</td>
+
+      </tr>
+
+
+    </tbody>
+    {% endfor %}
+
+  </table>
+
+{% endblock %}

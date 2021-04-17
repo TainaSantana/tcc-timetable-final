@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Turma {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Turma: {{ turma.nome }}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+        <h5>Quantidade de alunos: {{ turma.qtd_alunos }}</h5>
+        <h5>Cadastrado em: {{ turma.criado_em }}</h5>
+     
+
+{% endblock %}

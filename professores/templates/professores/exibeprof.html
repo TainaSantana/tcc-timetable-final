@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Professor {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Professor(a): {{ professor.nome }}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+
+          </div>
+        </div>
+      </div>
+    
+        <h5>Matrícula: {{ professor.matricula }}</h5>
+        <h5>E-mail: {{ professor.email }}</h5>
+        <h5>Jornada semanal: {{  professor.jornada_sem }}</h5>
+        <h5>Máximo de aulas por dia: {{ professor.max_aulas_dia }}</h5>
+        <h5>Cadastrado em: {{ professor.criado_em }}</h5>
+     
+
+{% endblock %}

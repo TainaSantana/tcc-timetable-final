@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %} Cadastro de Disciplina {% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Cadastro de Disciplina</h1>
+  
+</div>
+<form method="POST">
+  {% csrf_token %}
+ 
+    <!--{{ form }}-->
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="id_nome">Nome da Disciplina</label>
+      <input type="text" name="nome" required id="id_nome" class="form-control" maxlength="150" placeholder="Ex.: Matemática">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="id_sigla">Sigla</label>
+      <input type="text" name="sigla" required id="id_sigla" class="form-control" maxlength="15" placeholder="Ex.: MAT1">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_carga_hor">Carga Horária</label>
+      <input type="text" name="carga_hor" required id="id_carga_hor" class="form-control" maxlength="4" placeholder="Ex.: 70">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_semestre">Semestre</label>
+      <input type="text" name="semestre" required id="id_semestre" class="form-control" maxlength="2" placeholder="Ex.: 1">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_total_aulas">Total de aulas da disciplina</label>
+      <input type="text" name="total_aulas" required id="id_total_aulas" class="form-control" maxlength="3" placeholder="Ex.: 30">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_aulas_semanais">Total de aulas semanais</label> 
+      <input type="text" name="aulas_semanais" required id="id_aulas_semanais" class="form-control" maxlength="3" placeholder="Ex.: 8">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="categoria">Categoria</label>
+      <select name="categoria" required id="categoria" class="form-control">
+       <option value selected>Selecione</option>
+       <option value="1">Teórica</option>
+       <option value="2">Prática</option>
+
+      </select>
+  </div>
+  <!--<div class="form-group col-md-2">
+      <label for="status">Status</label>
+      <select name="status" required id="id_status" class="form-control">
+        <option selected value="1">Ativo</option>
+        <option value="2">Inativo</option>
+      </select>
+  </div>-->
+      <div class="form-group col-md-4">
+ <label for="professor">Professor(a)</label>
+  <select name="professor" class="form-control" id="id_professor">
+  <option value selected>Selecione...</option>
+    {% for prof in prof %}
+        <option value="{{ prof.id }}">{{ prof.nome }}</option>
+    {% endfor %}
+  </select>
+  </div>
+  
+</div>
+
+  
+  <input type="submit" class="btn btn-success" value="Cadastrar Disciplina">
+
+</form>
+{% endblock %}

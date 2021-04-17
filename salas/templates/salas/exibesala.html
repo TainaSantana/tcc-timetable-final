@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Sala {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Sala: {{ sala.nome }}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+        <h5>Bloco: {{ sala.bloco }}</h5>
+        <h5>Capacidade: {{ sala.capacidade }}</h5>
+        <h5>Tipo de laboratório: {{ sala.get_tipo_lab_display }}</h5>
+        <h5>Cadastrado em: {{ sala.criado_em }}</h5>
+     
+
+{% endblock %}

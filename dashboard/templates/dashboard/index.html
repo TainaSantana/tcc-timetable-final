@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+    
+  </div>
+
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card text-white" id="card" style="background-color: #6495ED; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <!--<a href="{% url 'disciplinas:disc-list' %}">-->
+        <div class="card-body">
+    
+          <h5 class="card-title text-center">Disciplinas Cadastradas<img src="{% static 'img/book2.png' %}" width="40" height="45"></h5>
+          <h4 class="card-text text-center">{{ disc }}</h4>
+          
+        </div>
+      <!--</a>-->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-white" id="card" style="background-color: #CD5C5C; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card-body">
+          <h5 class="card-title text-center">Professores Cadastrados <img src="{% static 'img/teacher2.png' %}" width="40" height="45"></h5>
+          <h4 class="card-text text-center">{{ prof }}</h4>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card text-white" id="card" style="background-color: #5F9EA0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card-body">
+            <h5 class="card-title text-center">Salas Cadastradas <img src="{% static 'img/living.png' %}" width="40" height="45"></h5>
+            <h4 class="card-text text-center">{{ salas }}</h4>
+            
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+    <br>
+    <div class="row">
+    <div class="col-sm-4">
+        <div class="card text-white" id="card" style="background-color: #708090; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card-body">
+            <h5 class="card-title text-center">Turmas Cadastradas <img src="{% static 'img/grupo.png' %}" width="40" height="40"></h5>
+            <h4 class="card-text text-center">{{ turmas }}</h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

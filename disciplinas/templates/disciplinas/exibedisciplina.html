@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Disciplina {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Disciplina: {{ disciplina.nome }}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+        <h5>Sigla: {{ disciplina.sigla }}</h5>
+        <h5>Carga Horária: {{ disciplina.carga_hor }} horas</h5>
+        <h5>Semestre: {{ disciplina.semestre }}</h5>
+        <h5>Total de aulas da disciplina: {{ disciplina.total_aulas }}</h5>
+        <h5>Quantidade de aulas semanais: {{ disciplina.aulas_semanais }}</h5>
+        <h5>Professor(a) vinculado(a): {{ disciplina.professor }}</h5>
+        <h5>Cadastrado em: {{ disciplina.criado_em }}</h5>
+     
+
+{% endblock %}
